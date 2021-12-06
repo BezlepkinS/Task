@@ -2,19 +2,17 @@ package MouseListener;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.MouseAdapter;
 import javax.swing.*;
 
 public class Listener extends JFrame {
 
-    private final JLabel button0 = new JLabel("NORTH");
-    private final JLabel button1 = new JLabel("CENTER");
-    private final JLabel button2 = new JLabel("SOUTH");
-    private final JLabel button3 = new JLabel("WEST");
-    private final JLabel button4 = new JLabel("EAST");
+    private final JLabel text0 = new JLabel("NORTH");
+    private final JLabel text1 = new JLabel("CENTER");
+    private final JLabel text2 = new JLabel("SOUTH");
+    private final JLabel text3 = new JLabel("WEST");
+    private final JLabel text4 = new JLabel("EAST");
 
-    private final JPanel panel0 = new JPanel();
     private final JPanel panel1 = new JPanel();
     private final JPanel panel2 = new JPanel();
     private final JPanel panel3 = new JPanel();
@@ -42,28 +40,27 @@ public class Listener extends JFrame {
         container.add(BorderLayout.EAST, panel5);
 
         panel1.setBackground(Color.GRAY);
-        ;
         panel2.setBackground(Color.WHITE);
         panel3.setBackground(Color.BLACK);
         panel4.setBackground(Color.DARK_GRAY);
         panel5.setBackground(Color.DARK_GRAY);
 
-        button0.setFont(new Font("Dialog", Font.ITALIC, 40));
-        button0.setForeground(Color.BLUE);
-        button1.setFont(new Font("Dialog", Font.ITALIC, 40));
-        button1.setForeground(Color.BLUE);
-        button2.setFont(new Font("Dialog", Font.ITALIC, 40));
-        button2.setForeground(Color.BLUE);
-        button3.setFont(new Font("Dialog", Font.ITALIC, 40));
-        button3.setForeground(Color.BLUE);
-        button4.setFont(new Font("Dialog", Font.ITALIC, 40));
-        button4.setForeground(Color.BLUE);
+        text0.setFont(new Font("Dialog", Font.ITALIC, 40));
+        text0.setForeground(Color.BLUE);
+        text1.setFont(new Font("Dialog", Font.ITALIC, 40));
+        text1.setForeground(Color.BLUE);
+        text2.setFont(new Font("Dialog", Font.ITALIC, 40));
+        text2.setForeground(Color.BLUE);
+        text3.setFont(new Font("Dialog", Font.ITALIC, 40));
+        text3.setForeground(Color.BLUE);
+        text4.setFont(new Font("Dialog", Font.ITALIC, 40));
+        text4.setForeground(Color.BLUE);
 
-        panel1.add(button0);
-        panel2.add(button1);
-        panel3.add(button2);
-        panel4.add(button3);
-        panel5.add(button4);
+        panel1.add(text0);
+        panel2.add(text1);
+        panel3.add(text2);
+        panel4.add(text3);
+        panel5.add(text4);
 
         panel1.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {

@@ -13,7 +13,7 @@ public class MyImage extends JFrame {
         setResizable(false);
         this.setSize(1000, 563);
         setLocationRelativeTo(null);
-        this.startWindow(Image);
+        startWindow(Image);
     }
     private void startWindow(String Image) {
         container = new Container();

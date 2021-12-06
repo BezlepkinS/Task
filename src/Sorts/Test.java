@@ -5,58 +5,56 @@ import java.util.*;
 public class Test {
     public static void main(String[] args) {
 
-        Student[] St1 = new Student[4];
-        St1[0] = new Student (12, 7);
-        St1[1] = new Student (14, 12);
-        St1[2] = new Student (76, 4);
-        St1[3] = new Student (3, 11);
+        Student[] Students1 = new Student[4];
+        Students1[0] = new Student (12, 7);
+        Students1[1] = new Student (14, 12);
+        Students1[2] = new Student (76, 4);
+        Students1[3] = new Student (3, 11);
 
-        Student[] St2 = new Student[5];
-        St2[0] = new Student(213, 3);
-        St2[1] = new Student(12, 9);
-        St2[2] = new Student(142, 18);
-        St2[3] = new Student(7234, 9);
-        St2[4] = new Student(4, 5);
+        Student[] Students2 = new Student[5];
+        Students2[0] = new Student(213, 3);
+        Students2[1] = new Student(12, 9);
+        Students2[2] = new Student(142, 18);
+        Students2[3] = new Student(7234, 9);
+        Students2[4] = new Student(4, 5);
 
-        Student[] c = new Student[St1.length+ St2.length];
-        System.out.println("Insertion sort by idNumber: ");
-        for (int i = 1; i < St1.length; i++) {
-            Student current = St1[i];
+        Student[] currentStudents = new Student[Students1.length + Students2.length];
+        System.out.println("Insertion sort by iDNumber: ");
+        for (int i = 1; i < Students1.length; i++) {
+            Student current = Students1[i];
             int j = i-1;
-            for(; j >= 0 && current.compareTo(St1[j]) < 0; j--) {
-                St1[j+1] = St1[j];
+            for(; j >= 0 && current.compareTo(Students1[j]) < 0; j--) {
+                Students1[j+1] = Students1[j];
             }
-            St1[j+1] = current;
+            Students1[j+1] = current;
         }
-        for (Student s : St1) {
-            System.out.println(s);
+        for (Student student : Students1) {
+            System.out.println(student);
         }
 
         SortingStudentsByGPA gpaComparator = new SortingStudentsByGPA();
-        quickSort(St1, 0, St1.length-1, gpaComparator);
+        quickSort(Students1, 0, Students1.length-1, gpaComparator);
 
         System.out.println("\nQuick sort by GPA: ");
-        for (Student s : St1) {
+        for (Student s : Students1) {
             System.out.println(s);
         }
 
-
         System.out.println("\nMerged array: ");
-        merge(St1, St2, c, gpaComparator);
-        for (Student l : c) {
-            System.out.println(l);
+        merge(Students1, Students2, currentStudents, gpaComparator);
+        for (Student s : currentStudents) {
+            System.out.println(s);
         }
 
         System.out.println("\nSorted merged array by GPA: ");
-        mergeSort(c, 0, c.length-1, gpaComparator);
-        for (Student l : c) {
+        mergeSort(currentStudents, 0, currentStudents.length-1, gpaComparator);
+        for (Student l : currentStudents) {
             System.out.println(l);
         }
 
     }
 
     private static void quickSort(Student[] source, int leftBorder, int rightBorder, Comparator<Student> c) {
-
         int leftMarker = leftBorder;
         int rightMarker = rightBorder;
         Student pivot = source[(leftMarker + rightMarker) / 2];
@@ -118,24 +116,21 @@ public class Test {
         int mid = (low+high)/2;
         mergeSort(array, low, mid, d);
         mergeSort(array, mid+1, high, d);
-        mergeM(array, low, mid, high, d);
+        mergeMerge(array, low, mid, high, d);
     }
 
-    public static void mergeM(Student[] array, int low, int mid, int high, Comparator<Student> d ) {
+    public static void mergeMerge(Student[] array, int low, int mid, int high, Comparator<Student> d ) {
 
-        Student leftStudent[] = new Student[mid - low + 1];
-        Student rightStudent[] = new Student[high - mid];
-
+        Student[] leftStudent = new Student[mid - low + 1];
+        Student[] rightStudent = new Student[high - mid];
 
         for (int i = 0; i < leftStudent.length; i++)
             leftStudent[i] = array[low + i];
         for (int i = 0; i < rightStudent.length; i++)
             rightStudent[i] = array[mid + i + 1];
 
-
         int leftIndex = 0;
         int rightIndex = 0;
-
 
         for (int i = low; i < high + 1; i++) {
 
@@ -148,15 +143,12 @@ public class Test {
                     rightIndex++;
                 }
             } else if (leftIndex < leftStudent.length) {
-
                 array[i] = leftStudent[leftIndex];
                 leftIndex++;
             } else if (rightIndex < rightStudent.length) {
-
                 array[i] = rightStudent[rightIndex];
                 rightIndex++;
             }
         }
     }
-
 }
