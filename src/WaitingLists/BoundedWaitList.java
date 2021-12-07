@@ -9,13 +9,14 @@ public class BoundedWaitList<E> extends WaitList<E>{
         if(capacity <= 0) throw new IllegalArgumentException("Максимальный размер должен быть больше 0! Получено значение: " + capacity);
         this.capacity = capacity;
     }
-    public BoundedWaitList(Collection<E> col){
-        super(col);
-        this.capacity = col.size();
+    public BoundedWaitList(Collection<E> collection){
+        super(collection);
+        this.capacity = collection.size();
     }
     public int getCapacity() {
         return capacity;
     }
+
     @Override
     public void add(E element) {
         if(components.size() == capacity) throw new IllegalStateException("Очередь заполнена!");
