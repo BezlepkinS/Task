@@ -9,7 +9,6 @@ public class ChairFactory implements AbstractChairFactory{
         return new VictorianChair(age);
     }
 
-
     @Override
     public MagicChair createMagicianChair() {
         return new MagicChair();

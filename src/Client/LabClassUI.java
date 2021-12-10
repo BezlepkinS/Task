@@ -175,5 +175,7 @@ public class LabClassUI extends JPanel implements LabClass{
         Comparator<Student> comp = new SortStudent();
         students.sort(comp);
         Result.setText("Список успешно отсортирован");
+        for (Student student : students)
+            System.out.println(student);
     }
 }

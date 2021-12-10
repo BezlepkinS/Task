@@ -1,27 +1,76 @@
 package WaitingLists;
 
 import java.util.Collection;
-public class BoundedWaitList<E> extends WaitList<E>{
+
+/**
+ * Class of queue with constant max {@link BoundedWaitList#capacity}.
+ * @param <E> Type of stored data.
+ * @see IWaitList
+ * @see WaitList
+ * @author BezlepkinS
+ * @version 1.2
+ */
+public class BoundedWaitList <E> extends WaitList<E> {
+
+    /**
+     * Field for maximum capacity of the queue.
+     */
     private int capacity;
 
-    public BoundedWaitList(int capacity){
+    /**
+     * Constructor - creating new object without any data and with maximum capacity.
+     *
+     * @param capacity Maximum {@link BoundedWaitList#capacity} of queue.
+     * @throws IllegalArgumentException Maximum capacity equal or below zero.
+     * @see WaitList#WaitList()
+     */
+    public BoundedWaitList(int capacity) {
         super();
-        if(capacity <= 0) throw new IllegalArgumentException("Максимальный размер должен быть больше 0! Получено значение: " + capacity);
+        if (capacity <= 0)
+            throw new IllegalArgumentException("Максимальный размер должен быть больше 0! Получено значение: " + capacity);
         this.capacity = capacity;
     }
-    public BoundedWaitList(Collection<E> collection){
-        super(collection);
-        this.capacity = collection.size();
+
+
+    /**
+     * Overrides constructor of copies from superclass to set max capacity equal to collection's size.
+     *
+     * @param col Collection to copy from
+     * @see WaitList#WaitList(Collection)
+     * @since 1.2
+     */
+    public BoundedWaitList(Collection<E> col) {
+        super(col);
+        this.capacity = col.size();
     }
+
+    /**
+     * Method to get property {@link BoundedWaitList#capacity}
+     *
+     * @return Value of {@link BoundedWaitList#capacity}
+     */
     public int getCapacity() {
         return capacity;
     }
 
+    /**
+     * Method to add element into queue (at end).
+     *
+     * @param element Value to be added.
+     * @throws IllegalStateException Queue is full: reached maximum {@link BoundedWaitList#capacity}
+     * @see WaitList#add(Object)
+     */
     @Override
     public void add(E element) {
-        if(components.size() == capacity) throw new IllegalStateException("Очередь заполнена!");
+        if (components.size() == capacity) throw new IllegalStateException("Очередь заполнена!");
         components.add(element);
     }
+
+    /**
+     * Method to get information about this list in String type.
+     *
+     * @return String-value of this list.
+     */
     @Override
     public String toString() {
         return "BoundedWaitList{" +
