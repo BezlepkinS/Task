@@ -1,7 +1,6 @@
 package Immutable.Gui;
 
 import Immutable.Custom.Components.HintTextField;
-import Immutable.Custom.Components.OrderItem;
 import Immutable.MenuItems.Dish;
 import Immutable.MenuItems.Drink;
 import Immutable.MenuItems.DrinkTypeEnum;
@@ -80,7 +79,7 @@ public class AddMenuItemGUI extends JFrame {
         addHintTextField("Cost", 15, mainContainer);
         addHintTextField("Name", 15, mainContainer);
         addHintTextField("Description", 15, mainContainer);
-        initAlocohableCheckBox();
+        initAlcoholCheckBox();
         mainContainer.add(alcoVolTextField);
         initTypeComboBox();
         mainContainer.add(addButton);
@@ -111,8 +110,8 @@ public class AddMenuItemGUI extends JFrame {
         mainContainer.add(drinkRadioButton);
     }
 
-    private void initAlocohableCheckBox(){
-        alcoCheckBox = new JCheckBox("is Alcohohable");
+    private void initAlcoholCheckBox(){
+        alcoCheckBox = new JCheckBox("is Alcohol");
         alcoCheckBox.setAlignmentX(Component.CENTER_ALIGNMENT);
         alcoCheckBox.setEnabled(false);
         alcoCheckBox.addActionListener(e -> {

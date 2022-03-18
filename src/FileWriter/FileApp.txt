@@ -1,5 +1,3 @@
 C
-ada 
-adad
-dsad
+Java better C++
 Конец

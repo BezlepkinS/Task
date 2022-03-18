@@ -4,7 +4,6 @@ package Immutable.OrdersManager.TableOrdersManager;
 import Immutable.MenuItems.MenuItem;
 import Immutable.OrdersManager.OrdersManager;
 import Immutable.Orders.Order;
-import Immutable.OrdersManager.OrdersManager;
 import Immutable.OrdersManager.IllegalTableNumber;
 
 public class TableOrdersManager implements OrdersManager {

@@ -51,7 +51,7 @@ public class Main {
 
         String emailString = "user@example.com, root@localhost " + "myHost@@@com.ru, @my.ru, Julia String";
 
-        Pattern emailPattern = Pattern.compile("(\\w+)(@)(\\w+)([.]?)(\\w+)");
+        Pattern emailPattern = Pattern.compile("(\\w+)\\@(\\w+)([.]?)(\\w{2,5})");
 
         System.out.println(RegexUtils.getListByPattern(emailString, emailPattern));
 
